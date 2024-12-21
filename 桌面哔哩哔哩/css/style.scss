@@ -10,6 +10,9 @@ body,
     position: relative;
 }
 
+div {
+    box-sizing: border-box;
+}
 
 .floatBox {
     position: absolute;
@@ -21,17 +24,20 @@ body,
 
 .bgWrap {
     display: flex;
+    font-size: 0;
 
     .bg {
         width: 50%;
         height: 100%;
-        background : url('../assets/bg.jpg') ;
-        background-size: 200%  ;
+        background: url('../assets/bg.jpg');
+        background-size: 200%;
+
         &Left {
-            background-position:  left;
+            background-position: left ;
         }
+
         &Right {
-            background-position:  right;
+            background-position: right ;
         }
     }
 }

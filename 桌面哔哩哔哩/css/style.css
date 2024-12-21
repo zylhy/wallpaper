@@ -10,6 +10,10 @@ body,
   position: relative;
 }
 
+div {
+  box-sizing: border-box;
+}
+
 .floatBox {
   position: absolute;
   width: 100%;
@@ -20,6 +24,7 @@ body,
 
 .bgWrap {
   display: flex;
+  font-size: 0;
 }
 .bgWrap .bg {
   width: 50%;
