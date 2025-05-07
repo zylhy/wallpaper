@@ -8,6 +8,7 @@ body,
   width: 100%;
   height: 100%;
   position: relative;
+  overflow: hidden;
 }
 
 div {
@@ -25,16 +26,13 @@ div {
 .bgWrap {
   display: flex;
   font-size: 0;
+  overflow: hidden;
 }
 .bgWrap .bg {
   width: 50%;
   height: 100%;
-  background: url("../assets/bg.jpg");
-  background-size: 200%;
-}
-.bgWrap .bgLeft {
-  background-position: left;
-}
-.bgWrap .bgRight {
-  background-position: right;
+  flex-grow: 0;
+  flex-shrink: 0;
+  background-repeat: no-repeat;
+  background-image: url("../assets/bg.jpg");
 }/*# sourceMappingURL=style.css.map */
