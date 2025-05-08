@@ -26,7 +26,11 @@
     <script src="./js/init.js"></script>
     <script>
         // return
-        fetch('https://passport.bilibili.com/x/passport-login/web/qrcode/generate')
+        fetch('http://localhost:3001/api/x/passport-login/web/qrcode/generate', {
+            headers: new Headers({
+                'Content-Type': 'application/json'
+            })
+        })
             .then(response => {
                 if (!response.ok) {
                     throw new Error('网络响应错误');
