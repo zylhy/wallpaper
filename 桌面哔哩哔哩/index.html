@@ -4,22 +4,55 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>title</title>
+    <title>壁纸</title>
     <link rel="stylesheet" href="./css/style.css">
 </head>
 
 <body>
     <div class="Wrap">
+        <div class="content">
+            <!-- <video style="width: 100%; height: 100%;" src="http://116.207.155.75:4480/upgcxcode/99/44/29817114499/29817114499-1-16.mp4?e=ig8euxZM2rNcNbRVhwdVhwdlhWdVhwdVhoNvNC8BqJIzNbfqXBvEqxTEto8BTrNvN0GvT90W5JZMkX_YN0MvXg8gNEV4NC8xNEV4N03eN0B5tZlqNxTEto8BTrNvNeZVuJ10Kj_g2UB02J0mN0B5tZlqNCNEto8BTrNvNC7MTX502C8f2jmMQJ6mqF2fka1mqx6gqj0eN0B599M=&oi=1001164139&platform=pc&os=mcdn&og=cos&trid=000074c222732a4b4f79910029212395be2U&tag=&uipk=5&gen=playurlv3&mid=0&deadline=1746702371&nbs=1&upsig=692b85f7d5f28bb8b27332fcf60270b2&uparams=e,oi,platform,os,og,trid,tag,uipk,gen,mid,deadline,nbs&mcdnid=50014759&bvc=vod&nettype=0&bw=304519&f=U_0_0&agrr=1&buvid=&build=0&dl=0&orderid=0,3
+" id="video"></video> -->
+        </div>
         <div class="bgWrap floatBox">
             <div class="bg bgLeft">
             </div>
             <div class="bg bgRight">
             </div>
+            <div class="triggerArea"></div>
+
         </div>
     </div>
     <script src="./js/init.js"></script>
+    <script>
+        // return
+        fetch('https://passport.bilibili.com/x/passport-login/web/qrcode/generate')
+            .then(response => {
+                if (!response.ok) {
+                    throw new Error('网络响应错误');
+                }
+                return response.json();
+            })
+            .then(users => {
+                const list = document.querySelector('.content');
+                list.innerHTML = ''; // 清空列表
+                users.forEach(user => {
+                    const li = document.createElement('li');
+                    li.textContent = `${user.name} (${user.email})`;
+                    list.appendChild(li);
+                });
+            })
+            .catch(error => {
+                console.error('获取用户失败：', error);
+                const list = document.querySelector('.content');
+                list.innerHTML = error; // 清空列表
+
+            });
+
+
+
+
+    </script>
 </body>
 
 </html>
-
-
