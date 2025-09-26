@@ -24,34 +24,38 @@
         </div>
     </div>
     <script src="./js/init.js"></script>
-    <script>
-        // return
-        fetch('http://localhost:3001/api/qrcode', {
-            headers: new Headers({
-                'Content-Type': 'application/json'
-            })
-        })
-            .then(response => {
-                if (!response.ok) {
-                    throw new Error('网络响应错误');
-                }
-                return response.json();
-            })
-            .then(users => {
-                // const list = document.querySelector('.content');
-                // list.innerHTML = ''; // 清空列表
-                // users.forEach(user => {
-                //     const li = document.createElement('li');
-                //     li.textContent = `${user.name} (${user.email})`;
-                //     list.appendChild(li);
-                // });
-            })
-            .catch(error => {
-                console.error('获取用户失败：', error);
-                const list = document.querySelector('.content');
-                list.innerHTML = error; // 清空列表
+    <script type="module">
+        import {request} from "./js/request.js"
+        // 页面加载完成，加载登录二维码
+        window.onload =async ()=>{
+            request("qrcode")
+        }
+        // fetch('http://localhost:3001/api/qrcode', {
+        //     headers: new Headers({
+        //         'Content-Type': 'application/json'
+        //     })
+        // })
+        //     .then(response => {
+        //         if (!response.ok) {
+        //             throw new Error('网络响应错误');
+        //         }
+        //         return response.json();
+        //     })
+        //     .then(users => {
+        //         // const list = document.querySelector('.content');
+        //         // list.innerHTML = ''; // 清空列表
+        //         // users.forEach(user => {
+        //         //     const li = document.createElement('li');
+        //         //     li.textContent = `${user.name} (${user.email})`;
+        //         //     list.appendChild(li);
+        //         // });
+        //     })
+        //     .catch(error => {
+        //         console.error('获取用户失败：', error);
+        //         const list = document.querySelector('.content');
+        //         list.innerHTML = error; // 清空列表
 
-            });
+        //     });
 
 
 
