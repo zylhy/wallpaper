@@ -1,3 +1,4 @@
+//  controllers/qrcodeController.js
 const request = require('../request/index');
 exports.getQRCode = async (req, res) => {
   try {
